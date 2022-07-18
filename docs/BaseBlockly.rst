@@ -1,23 +1,36 @@
 Creation of a *basic* Blockly task
 ==================================
+/TODO parler de la catégorisation des blocs
 
 There is, first, a few steps that are the same as for any other tasks. Those are :
 
-1. Create the exercice as you would a classical one. Set up a title, a context, your name, the options you want,... When creating a subproblem, select "blockly" as "type of task"
+1. Create the exercice as you would a classical one. (The tutorial for this can be found here https://docs.inginious.org/en/latest/teacher_doc/task_tuto.html ) Set up a title, a context, your name, the options you want,... When creating a subproblem, select "blockly" as "type of task", give it an ID and don't forget to save by pressing "Save changes"
 2. Again, perform the set-up of the task as you normally would
-3. If you want, set up the maximum number of blocks that the student can use to perform the task by entering it in the "Max number of blocks" field (by default, it is "Infinity")
+3. If you want, in the "Workspace option" button, set up the maximum number of blocks that the student can use to perform the task by entering it in the "Max number of blocks" field (by default, it is "Infinity")
 
-Now, there is two ways to configure Blockly :  either using the embedded graphical interface or by entering the blocks by hand. Since the first solution is more beginner-friendly, let's explore it first. Scroll down all the way and click "edit toolbox/workspace graphically". This is what you will see.
+.. image:: VisualBase/number_of_blocks.png
+   :align: center
+   :width: 75 %
+
+4. Don't forget to change the "environment" accordingly. For example in a blockly task, you would choose "Standard container (Docker)" for the "Grading environment type". You also need to change the "Grading environment" based on the language you'll use. Put "Default" if unsure. 
+
+Now, there is two ways to configure Blockly :  either using the embedded graphical interface or by entering the blocks by hand. Since the first solution is more beginner-friendly, let's explore it first. On the "Subproblems" tab, open your task and scroll all the way down, click "edit toolbox/workspace graphically". 
+
+.. image:: VisualBase/edit_graphically.png
+   :align: center
+   :width: 75 %
+
+This is what you will see.
 
 .. image:: VisualBase/base.png
    :align: center
 
-The left side is where you can configure the tool, and the right side will display a live preview of what you did so far. The left side has two tabs : the toolbox will hold the pool of blocks that the student can use to solve the task. To add blocks, simply click on one category and drag/drop the block you want in the tab. Here is an example :
+The left side is where you can configure the tool, and the right side will display a live preview of what you did so far. The left side has two tabs : the toolbox and the workspace. The toolbox will hold the pool of blocks that the student can use to solve the task. To add blocks, simply click on one category and drag/drop the block you want in the tab. Here is an example :
 
 .. image:: VisualBase/toolbox.png
    :align: center
 
-If you want to delete a block, simply drag it to the trashcan on the bottom right. Now, you can also add blocks to the workspace of the student, that will serve as a base for the exercice. Simply click on the "workspace" tab and drag/drop the same way.
+If you want to delete a block, simply drag it to the trashcan on the bottom right. Now, you can also add blocks to the workspace of the student, that will serve as a base for the exercice. Simply click on the "workspace" tab and drag/drop the same way that you did with the toolbox.
 
 .. image:: VisualBase/workspace.png
    :align: center
@@ -29,10 +42,11 @@ Example : create the sum function (using the graphical interface)
 
 Here, we are in the case where we want the student to create a function, which means we have to provide him with it's signature in the workspace. Our Sum function needs to take in two parameters, the two numbers to sum (let's call them a and b), and return the resulting sum.
 
-First, click the "Workspace" tab and open the "Function" category. Out of the three blocks, we need the functions that returns, which is the second block on the image here.
+First, click the "Workspace" tab and open the "Function" category. Out of the three blocks, we need the functions that returns a value, which is the second block on the image here.
 
 .. image:: VisualBase/function.png
    :align: center
+   
 
 Now, configure the function. The wheel icons allow us to add parameters. Simply name your parameter (*x* by default), then connect the block into the right space, like so :
 
@@ -46,7 +60,7 @@ The *?* icon allows us to set a tooltip (text that show on mouseover) simply by 
 .. image:: VisualBase/tooltip.png
    :align: center
 
-Finally, we have to name our function, changing the *do somthing* into what we want, here, *Sum* :
+Finally, we have to name our function, changing the *do something* into what we want, here, *Sum* :
 
 .. image:: VisualBase/name.png
    :align: center
@@ -65,7 +79,7 @@ Finally, select the corresponding block and plug it into the "return" spot. Here
 .. image:: VisualBase/result1.png
    :align: center
 
-Now, it is time to create the toolbox. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we first need to re-create all the previous variables, the same way as we did for the *result* one (clicking on create variable). Here is what we end up with :
+Now, it is time to fill the toolbox with the necessary blocks. Click on the corresponding tab, and select the blocks that you want for the task. In our case, we first need to re-create all the previous variables, the same way as we did for the *result* one (clicking on create variable). Here is what we end up with :
 
 .. image:: VisualBase/toolVar.png
    :align: center
@@ -133,7 +147,7 @@ For such a simple task, the basic ``run`` file is sufficient, with only two line
 
 
     if __name__ == "__main__":
-        input.parse_template("sum.py") #Replace sum.py by your filename on this line and the next
+        input.parse_template("sum.py") #Replace sum.py by your filename on this line AND the next
         p = subprocess.Popen(shlex.split("python3 sum.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
         make_output = p.communicate()[0].decode('utf-8')
         if p.returncode:
@@ -153,7 +167,7 @@ Those two files need to go in your task folder, and the task creation is complet
 Example : create the sum function by hand
 -----------------------------------------
 
-Both the toolbox and the workspace can also be created by hand (using xml code) when clicking on the "Edit toolbox XML" and "Edit workspace XML" buttons. We'll go over how to configure those two to acheive the same set up as the previous example.
+Both the toolbox and the workspace can also be created by hand (using xml code) when clicking on the "Edit toolbox XML" and "Edit workspace XML" buttons. We'll go over how to configure those two to achieve the same set up as the previous example.
 
 First, xml tags must surround every other lines in both the toolbox and the workspace, like this :
 
@@ -285,12 +299,12 @@ Here is the result from the student's point of view :
 .. image:: VisualBase/cat2.png
     :width: 49 %
 
-To get the full documentation about what can be acheived when modifying the toolbox manually, head to `this link <https://developers.google.com/blockly/guides/configure/web/toolbox>`_ (Google documentation).
+To get the full documentation about what can be achieved when modifying the toolbox manually, head to `this link <https://developers.google.com/blockly/guides/configure/web/toolbox>`_ (Google documentation).
 
 Example : an "only workspace" task
 ----------------------------------
 
-When creating a Blockly course, you might want your student to only re-order the blocks that are on the workspace rather than using a toolbox. This example will show you how to acheive that with the graphical interface. Here, we will take the very simple example of a function counting the number of occurence of a number n in a list and returns it.
+When creating a Blockly course, you might want your student to only re-order the blocks that are on the workspace rather than using a toolbox. This example will show you how to achieve that with the graphical interface. Here, we will take the very simple example of a function counting the number of occurence of a number n in a list and returns it.
 
 First, open the graphical editor, click on the workspace tab and create a function that takes two parameters *list* and *n*, and returns a value *return* (if you are not familiar with the graphical interface use, refer to `Example : create the sum function (using the graphical interface)`_)
 
