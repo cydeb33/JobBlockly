@@ -18,14 +18,15 @@ A file representing all possible intersections of the path and, if wanted, two "
 
 A sprite for the avatar in png, with the following format : 21 frames of equal size and equally spaced, with the character in the center of each one. The frames need to be ordered this way :
 
+.. image:: NeededVisuals/avatar.png
+    :align: center
+
 * The first (left) sprite is the character from the back. Then, we have a transition where it turns on it's right in three steps
 * The next frame, the 5th one, is the character on it's right profile. Then, another transition with a turn to the right in three steps
 * The 9th fame is then the character from the front. Again, the three next are a transition to the right.
 * The 13th frame is the left profile, followed by the last transition, getting us to 16 images
 * Finally, 5 images representing a walking animation (currently not used by the application, you can put any frame) to get to the 21.
 
-.. image:: NeededVisuals/avatar.png
-    :align: center
 
 Files for a maze task
 .....................
@@ -41,7 +42,7 @@ The marker when it is reached by the character and the game is won (gif or png)
 .. image:: NeededVisuals/goal.gif
     :align: center
 
-Now, for the obstacles, there is two ways : either you provide just one type of ennemy that can attack from every "side", or you want more variety, and can create four ennemies, that are accessed from : the top, the bottom, the right and the left. No matter which you choose, you will need, for each ennemies and "idle" and a "attacking" image. For example, here we have an idle obstacle (when the character is on another tile), in gif or png :
+Now, for the obstacles, there is two ways : either you provide just one type of ennemy that can attack from every "side", or you want more variety, and can create four ennemies, that are accessed from : the top, the bottom, the right and the left. No matter which you choose, you will need, for each ennemies an "idle" and a "attacking" image. For example, here we have an idle obstacle (when the character is on another tile), in gif or png :
 
 .. image:: NeededVisuals/obstacleIdle.gif
     :align: center
@@ -81,7 +82,7 @@ The type of task *APP0* is a particular case of a maze, where you do not have an
 Files for a collect and create task
 ...................................
 
-An item to collect that will have a fixed value (that do not change when refreshing the page):
+An item to collect that will have a fixed value (that do not change when refreshing the page) :
 
 .. image:: NeededVisuals/redFlower.png
     :align: center
@@ -96,7 +97,7 @@ An item to create :
 .. image:: NeededVisuals/honey.png
     :align: center
 
-An item to hide some tiles, and a disapearing version of the item (you might need to refresh the page to see the animation):
+An item to hide some tiles, and a disapearing version of the item (you might need to refresh the page to see the animation) :
 
 .. image:: NeededVisuals/cloud.png
     :align: center
@@ -127,7 +128,7 @@ The only file to modify is ``maze_config.json``, that you will find under ``task
     }
   }
 
-Here, the ``background`` variable correspond to the 8x8 background, the ``tiles`` is all of the paths, and the ``sprite`` variable will hold your avatar image. ``obstacleScale`` scales items regarding the character, ``graph`` allows to draw a grid on the map, and the three last variables can hold your sounds if you have them.
+Here, the ``background`` variable correspond to the 8x8 background, the ``tiles`` is every path that can be taken, and the ``sprite`` variable will hold your avatar image. ``obstacleScale`` scales items regarding the character, ``graph`` allows to draw a grid on the map, and the three last variables can hold your sounds if you have them.
 
 To change a file, simply rename your file or change the name in the file, like so :
 
@@ -156,7 +157,7 @@ If you are creating a maze, in ``visuals``, you have the following items :
     }
   }
 
-The first two contains your end marker as well as a win animation, and are always the same. The next two concern the obstacle, and must be used as described if you have only one ennemy. If you have four, you must define them like so :
+The first two contain your end marker as well as a win animation, and are always the same. The next two concern the obstacle, and must be used as described if you have only one enemy. If you have four, you must define them like so :
 
 .. code-block:: json
 
@@ -167,7 +168,7 @@ The first two contains your end marker as well as a win animation, and are alway
     }
   }
 
-The order you put your animations in is very important, and must be like so : obstacle when the character is comming from a tile down it, from a tile to it's left, from up it, from a tile to it's right. Of course, it must correcpond to the other version.
+The order you put your animations in is very important, and must be like so : obstacle when the character is coming from a tile below it, from a tile to it's left, from a tile above it, from a tile to it's right. The order of the idles and animations gifs must correspond.
 
 Files used by collect and create
 ................................
