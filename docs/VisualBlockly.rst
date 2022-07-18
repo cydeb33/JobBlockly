@@ -31,7 +31,7 @@ To start, unzip the files of your choice into the course directory. You can free
 Create a new maze task
 ------------------------
 
-First, download the file `task_pvz <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, `task_pegman <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_ or `task_4_ennemies <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, unzip it to create a task and make any changes you want to the titles, instructions, etc...
+First, download one of the files `task_pvz <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, `task_pegman <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_ or `task_4_ennemies <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, unzip it to create a task and make any changes you want to the titles, instructions, etc...
 
 The only file you have to edit to use this kind of task is ``maze_config.json`` under ``yourTask/public``. If you wish to change the graphical look of the maze, head to :doc:`this part <../VisualDocumentation>`  of the documentation to learn how to do so. If not, we will go over every element of the json file.
 
@@ -117,7 +117,7 @@ If you wish to change the orientation of the character at the start, change the 
 
 .. image:: VisualBase/headWest.png
     :align: center
-
+/TODO parler ici de la barre de vitesse
 If you feel like the animation speed is a little bit too quick or too slow, update the value of the ``animationSpeed`` item.
 
 If you wish to change the subproblem id (not visible to user, so we would advise to not do it), you will have to modify the line 107 in the file ``yourtask/student/maze.tpl.py`` to correspond the name you picked. By default, we have :
@@ -240,8 +240,8 @@ This element also has the ``x`` and ``y`` coordinates, but no value. Instead, it
 
 Cloud
 ............
-
-This last element is used to hide parts of the map before the start of the animation (it will desapear as soon as the user clicks "run code").
+/TODO parler de la barre de vitesse ? 
+This last element is used to hide parts of the map before the start of the animation (it will disappear as soon as the user clicks "run code").
 
 The ``specialCells`` content is :
 
@@ -282,7 +282,7 @@ Create a new drawing task
 
 First, download the file `task_artist <https://github.com/CelineDknp/JobBlockly/tree/master/BaseExercices>`_, unzip it to create a task and make any changes you want to the titles, instructions, etc...
 
-Here is what our example looks like in INGInious. The circle with the arrow is the drawing utencil, is is referrenced further down as "the turtle" it moves (and draw) in the direction of the arrow.
+Here is what our example looks like in INGInious. The circle with the arrow is the drawing stencil, it is referred further down as "the turtle". "The turtle" moves (and draw) in the direction of the arrow.
 
 .. image:: VisualBase/turtleBase.png
     :align: center
@@ -326,7 +326,7 @@ The second step is to define how the expected solution will be displayed to the 
 Create solution image using `create_img.py`
 ...........................................
 
-To use this script, you must have the Python module Pillow installed (see `this link <pillow.readthqedocs.io/en/3.1.x/installation.html>`_).
+To use this script, you must have the Python module ``Pillow`` installed (see `this link <pillow.readthedocs.io/en/stable/installation.html>`_).
 
 Then, write the solution to your exercice in the file ``create_img.py`` (from the line 95). The function names used by Blockly are available, so you can solve your exercice using blocks and copy/paste if you feel that this is easier for you [2]_. In our example, we have this :
 
