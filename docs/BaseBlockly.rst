@@ -510,7 +510,7 @@ Now, we only need to link all the parts of our block into the corresponding pyth
     return code;
   };
 
-Now, we will save all that into a file, *custom_block.js*, and head to INGInious. First, create a new task and a Blockly subproblem, then copy your file into a public directory in your task (``task_name/public``). Refresh (F5) the task edition page to see you file. Then, on the corresponding subproblem, add your file name as "Additional block file" by clicking the blue button and typing the name of the file.
+Now, we will save all that into a file, *custom_block.js*, and head to INGInious. First, create a new task and a Blockly subproblem, then if you don't have a public directory yet, create one. Then copy your file into this public directory in your task (``task_name/public``), if your file is not inside the "public" directory, the path will not work. Refresh (F5) the task edition page to see you file. Then, on the corresponding subproblem, add your file name as "Additional block file" by clicking the blue button and typing the name of the file.
 
 .. image:: VisualBase/blockCustom8.png
     :align: center
