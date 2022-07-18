@@ -1,6 +1,5 @@
 Creation of a *basic* Blockly task
 ==================================
-/TODO parler de la catégorisation des blocs
 
 There is, first, a few steps that are the same as for any other tasks. Those are :
 
